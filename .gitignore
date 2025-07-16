@@ -1,0 +1,24 @@
+
+# .gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+*.log
+.DS_Store
+*.pdf
+*.json
+input/*
+output/*
+!input/.gitkeep
+!output/.gitkeep
