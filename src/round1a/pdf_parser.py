@@ -4,6 +4,7 @@ PDF parsing utilities
 """
 
 import fitz  # PyMuPDF
+from ..utils.helpers import log, clean_text  # Add this line
 
 def parse_pdf(pdf_path):
     log(f"Opening PDF: {pdf_path}")
