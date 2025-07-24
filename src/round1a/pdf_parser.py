@@ -1,10 +1,15 @@
-# src/round1a/pdf_parser.py
+# Fix 1: Update src/round1a/pdf_parser.py
 """
 PDF parsing utilities
 """
 
 import fitz  # PyMuPDF
-from ..utils.helpers import log, clean_text  # Add this line
+import sys
+import os
+
+# Add src to path for imports
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from utils.helpers import log, clean_text
 
 def parse_pdf(pdf_path):
     log(f"Opening PDF: {pdf_path}")
