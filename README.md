@@ -27,6 +27,7 @@ This project extracts structured outlines from PDF documents, identifying the ti
 - Creates clean JSON output with title and outline
 - Fast processing (handles 50-page PDFs in under 10 seconds)
 - Works offline without internet connection
+- Supports scanned PDFs through OCR technology
 
 ## How to Use
 
@@ -45,7 +46,7 @@ python main.py
 ```
 
 ### Using Docker
-Docker is a platform that packages the application and all its dependencies into a container that can run consistently on any system.
+Docker is a platform that packages the application and all its dependencies into a container that can run consistently on any system. The Docker image includes Tesseract OCR for processing scanned PDFs.
 
 ```bash
 # Build the Docker image
@@ -79,12 +80,17 @@ The solution generates a JSON file with the following structure:
 - Analyzes text patterns to recognize heading structures
 - Groups similar headings into hierarchical levels
 - Extracts the most prominent text as the document title
+- For scanned PDFs, employs OCR technology to first convert images to text before applying heading extraction algorithms
 
 ### Libraries Used
 - PyMuPDF (fitz): PDF parsing
 - NumPy: Data analysis
 - scikit-learn: Pattern recognition
+- Tesseract OCR: Text extraction from scanned documents
 
 ## Notes
-- The tests directory contains unit tests but isn't needed for running the application
 - For large PDFs, processing may take longer but should still be under 10 seconds
+- For OCR functionality, Tesseract OCR must be installed on your system
+  - On macOS: `brew install tesseract`
+  - On Ubuntu/Debian: `apt-get install tesseract-ocr`
+  - On Windows: Download installer from [GitHub](https://github.com/UB-Mannheim/tesseract/wiki)
